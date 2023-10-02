@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import ToDo from'./components/todo'
+import ToDo from './components/todo'
+import ToDoForm from './components/toDoForm'
 
 
 function App() {
@@ -27,8 +28,15 @@ function App() {
             <ToDo todo={todo} key={todo.id}/>
           ))}
       </div>
+
+      <ToDoForm />
+
     </div>
   )
 }
 
 export default App
+
+
+
+25,22
