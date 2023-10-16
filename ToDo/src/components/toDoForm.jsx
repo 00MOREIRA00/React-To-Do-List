@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-function toDoForm() {
+function toDoForm( { addToDo } ) {
+  const [value, setValue] = useState("")
+  const [category, setCategory] = useState("")
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!value || !category) return;
+    addToDo(value, category)
+    setCategory("");
+    setValue("");
+  }
+
   return (
     <div>
         <h2>Criar Tarefa</h2>
-        
-        <form>
-            <input type='text' placeholder='Digite o titulo'/>
-            <select>
+
+        <form onSubmit={handleSubmit}>
+            <input type='text' placeholder='Digite o titulo' value={value} onChange={(e) => setValue(e.target.value)}/>
+            <select value={category} onChange={(e) => setCategory(e.target.value)}>
                 <option value="">Selecione uma categoria</option>
                 <option value="Pessoal">Pessoal</option>
                 <option value="Trabalho">Trabalho</option>
