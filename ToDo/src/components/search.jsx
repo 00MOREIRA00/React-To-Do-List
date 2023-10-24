@@ -1,5 +1,3 @@
-import React from 'react'
-
 const search = ({ search, setSearch}) => {
   return (
     <div className='search'>
